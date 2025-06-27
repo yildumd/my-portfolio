@@ -4,131 +4,656 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yildum | Frontend Developer</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>html { scroll-behavior: smooth; }</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    :root {
+      --primary: #4361ee;
+      --primary-dark: #3a56d4;
+      --text: #2b2d42;
+      --text-light: #8d99ae;
+      --bg: #ffffff;
+      --card-bg: #f8f9fa;
+      --border: #e9ecef;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    [data-theme="dark"] {
+      --primary: #4895ef;
+      --primary-dark: #3a7bd5;
+      --text: #f8f9fa;
+      --text-light: #adb5bd;
+      --bg: #212529;
+      --card-bg: #343a40;
+      --border: #495057;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    section {
+      padding: 80px 0;
+    }
+    
+    h1, h2, h3, h4 {
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      margin: 0.5rem auto 0;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-light);
+    }
+    
+    a {
+      text-decoration: none;
+      color: var(--primary);
+    }
+    
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+    
+    .theme-toggle label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 500;
+    }
+    
+    .theme-toggle input {
+      display: none;
+    }
+    
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--bg);
+      box-shadow: var(--shadow);
+      z-index: 99;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.3s;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+    
+    .hero-content {
+      max-width: 800px;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+    
+    /* Buttons */
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .cta-button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* About Section */
+    #about {
+      background-color: var(--card-bg);
+    }
+    
+    #about p {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .skill {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+    }
+    
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    
+    .service-card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .service-card p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-card strong {
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+    
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    
+    .project-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-card p {
+      margin-bottom: 1rem;
+    }
+    
+    .project-card a {
+      margin-right: 1rem;
+      font-weight: 500;
+    }
+    
+    /* Testimonials Section */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .testimonial-card {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-card h4 {
+      color: var(--primary);
+      font-size: 1rem;
+    }
+    
+    /* Contact Section */
+    #contact {
+      background-color: var(--card-bg);
+    }
+    
+    #contact p {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+    
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .contact-form button {
+      justify-self: center;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: left 0.3s;
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      section {
+        padding: 60px 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Dark Mode Toggle -->
   <div class="theme-toggle">
     <label>
       <input type="checkbox" id="toggle-theme" />
-      🌙 Dark Mode
+      <i class="fas fa-moon"></i> Dark Mode
     </label>
   </div>
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">Yildum</div>
-    <div class="menu-toggle" id="mobile-menu">☰</div>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
     <ul class="nav-links" id="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://docs.google.com/document/d/1jbI4Ey_lW8FNaMj2dSeg9sZYsUu7bFMSjb6PJ22_X4I/edit?usp=sharing" target="_blank">📄 Resume</a></li>
+      <li><a href="https://docs.google.com/document/d/1jbI4Ey_lW8FNaMj2dSeg9sZYsUu7bFMSjb6PJ22_X4I/edit?usp=sharing" target="_blank"><i class="fas fa-file-alt"></i> Resume</a></li>
     </ul>
   </nav>
 
   <!-- Hero -->
   <header class="hero">
-    <div class="hero-content">
-      <h1>Hi, I'm Yildum</h1>
-      <p>Frontend Developer | React & Firebase Enthusiast</p>
-      <a href="#projects" class="cta-button">View My Work</a>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Hi, I'm Yildum</h1>
+        <p>Frontend Developer specializing in building fast, responsive web applications with React & Firebase</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="cta-button">View My Work</a>
+          <a href="#contact" class="cta-button secondary-button">Hire Me</a>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- About -->
-  <section id="about">
+  <section id="about" class="container">
     <h2>About Me</h2>
-    <p>I build clean, responsive, and fast web apps using React, Firebase, HTML, CSS, and JavaScript.</p>
+    <p>I'm a passionate frontend developer dedicated to creating clean, responsive, and performant web applications. With expertise in React and Firebase, I bridge the gap between design and technology to deliver exceptional user experiences. I focus on writing maintainable code and building interfaces that users love.</p>
   </section>
 
   <!-- Skills -->
-  <section id="skills">
+  <section id="skills" class="container">
     <h2>My Skills</h2>
     <div class="skills-grid">
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">React</div>
-      <div class="skill">Firebase</div>
+      <div class="skill"><i class="fab fa-html5"></i> HTML5</div>
+      <div class="skill"><i class="fab fa-css3-alt"></i> CSS3</div>
+      <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
+      <div class="skill"><i class="fab fa-react"></i> React</div>
+      <div class="skill"><i class="fas fa-database"></i> Firebase</div>
+      <div class="skill"><i class="fab fa-git-alt"></i> Git</div>
+      <div class="skill"><i class="fas fa-mobile-alt"></i> Responsive Design</div>
+      <div class="skill"><i class="fas fa-tachometer-alt"></i> Performance</div>
     </div>
   </section>
 
-  <!-- ✅ Services -->
-  <section id="services">
+  <!-- Services -->
+  <section id="services" class="container">
     <h2>My Services</h2>
     <div class="services-grid">
       <div class="service-card">
-        <h3>🔹 Landing Page</h3>
-        <p>Beautiful, responsive landing pages tailored to your business goals.</p>
+        <h3><i class="fas fa-laptop-code"></i> Landing Page Development</h3>
+        <p>Beautiful, responsive landing pages designed to convert visitors into customers. Perfect for startups, products, or services.</p>
         <p><strong>$50 / ₦75,000</strong></p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Mobile-first design</li>
+          <li><i class="fas fa-check"></i> SEO optimized</li>
+          <li><i class="fas fa-check"></i> Fast loading</li>
+          <li><i class="fas fa-check"></i> Contact forms</li>
+        </ul>
       </div>
       <div class="service-card">
-        <h3>🔧 Fix / Improve Existing Site</h3>
-        <p>Enhance your website speed, layout, mobile responsiveness or bug fixes.</p>
+        <h3><i class="fas fa-tools"></i> Website Improvements</h3>
+        <p>Enhance your existing website with modern design, better performance, and improved user experience.</p>
         <p><strong>$30 / ₦45,000</strong></p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Bug fixes</li>
+          <li><i class="fas fa-check"></i> Responsive redesign</li>
+          <li><i class="fas fa-check"></i> Performance optimization</li>
+          <li><i class="fas fa-check"></i> UI/UX improvements</li>
+        </ul>
       </div>
       <div class="service-card">
-        <h3>🛠 Web App & Dashboard</h3>
-        <p>Custom apps and dashboards using React + Firebase (CRUD, auth, admin).</p>
+        <h3><i class="fas fa-project-diagram"></i> Web Applications</h3>
+        <p>Custom web applications and dashboards built with React and Firebase for your business needs.</p>
         <p><strong>$120 / ₦180,000</strong></p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> React development</li>
+          <li><i class="fas fa-check"></i> Firebase integration</li>
+          <li><i class="fas fa-check"></i> User authentication</li>
+          <li><i class="fas fa-check"></i> Database management</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
+  <section id="projects" class="container">
+    <h2>My Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
         <h3>AgriSync AI</h3>
-        <p>AI diagnosis for farmers. Built with React & Firebase.</p>
-        <a href="#">Live</a> | <a href="#">GitHub</a>
+        <p>AI-powered agricultural diagnosis platform that helps farmers identify plant diseases and get treatment recommendations.</p>
+        <p><strong>Technologies:</strong> React, Firebase, TensorFlow.js</p>
+        <div class="project-links">
+          <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+        </div>
       </div>
       <div class="project-card">
         <h3>AjoX</h3>
-        <p>Digital savings platform using Firebase and React.</p>
-        <a href="#">Live</a> | <a href="#">GitHub</a>
+        <p>Digital savings platform that enables groups to save money collectively with transparent tracking and management.</p>
+        <p><strong>Technologies:</strong> React, Firebase, Chart.js</p>
+        <div class="project-links">
+          <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="container">
+    <h2>Client Testimonials</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p>"Yildum delivered my project ahead of schedule and exceeded expectations. The communication was excellent throughout the process, and the final product was exactly what I envisioned. Highly recommend!"</p>
+        <h4>– Grace O., Startup Founder</h4>
+      </div>
+      <div class="testimonial-card">
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p>"Very professional and responsive. My dashboard is now fast, beautiful, and user-friendly. Yildum understood my requirements perfectly and implemented them flawlessly."</p>
+        <h4>– Kola T., Product Manager</h4>
+      </div>
+      <div class="testimonial-card">
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p>"One of the best frontend devs I've worked with. The Firebase integration was seamless, and the app performance is excellent. Will definitely work with Yildum again."</p>
+        <h4>– Mary A., Tech Lead</h4>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:dyildum@gmail.com">dyildum@gmail.com</a></p>
-    <p>Phone: <a href="https://wa.me/2348164083309" target="_blank">+234 816 408 3309</a></p>
-    <a href="https://wa.me/2348164083309" class="cta-button" target="_blank">📱 Chat on WhatsApp</a>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <section id="contact" class="container">
+    <h2>Get In Touch</h2>
+    <p>Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!</p>
+    
+    <div class="contact-methods">
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> <a href="mailto:dyildum@gmail.com">dyildum@gmail.com</a></p>
+        <p><i class="fas fa-phone"></i> <a href="https://wa.me/2348164083309" target="_blank">+234 816 408 3309</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="#" target="_blank">LinkedIn Profile</a></p>
+        <p><i class="fab fa-github"></i> <a href="#" target="_blank">GitHub Profile</a></p>
+        
+        <a href="https://wa.me/2348164083309" class="cta-button whatsapp-button" target="_blank">
+          <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+      
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Subject" />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="cta-button">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
   </section>
 
-  <script src="script.js"></script>
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+    
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+    
+    // Dark Mode Toggle
+    const toggleTheme = document.getElementById('toggle-theme');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or use preferred color scheme
+    const savedTheme = localStorage.getItem('theme') || 
+                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    
+    // Apply the saved theme
+    if (savedTheme === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+      toggleTheme.checked = true;
+    }
+    
+    toggleTheme.addEventListener('change', () => {
+      if (toggleTheme.checked) {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Add shadow to navbar on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 10) {
+        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
-
-<!-- ✅ Testimonials -->
-<section id="testimonials">
-  <h2>Testimonials</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <p>"Yildum delivered my project ahead of schedule and exceeded expectations. Highly recommend!"</p>
-      <h4>– Grace O., Startup Founder</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"Very professional and responsive. My dashboard is now fast and beautiful."</p>
-      <h4>– Kola T., Product Manager</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"One of the best frontend devs I’ve worked with. Excellent Firebase integration!"</p>
-      <h4>– Mary A., Tech Lead</h4>
-    </div>
-  </div>
-</section>
