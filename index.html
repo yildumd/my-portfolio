@@ -3,21 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Yildum | Frontend Developer</title>
   <link rel="stylesheet" href="style.css" />
+  <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Portfolio</h1>
-    <p>Frontend Developer • Web Creator • Problem Solver</p>
+  <!-- ✅ Dark Mode Toggle -->
+  <div class="theme-toggle">
+    <label>
+      <input type="checkbox" id="toggle-theme" />
+      🌙 Dark Mode
+    </label>
+  </div>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <div class="logo">Yildum</div>
+    <div class="menu-toggle" id="mobile-menu">☰</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="resume.pdf" download>📄 Resume</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm Yildum</h1>
+      <p>Frontend Developer | React & Firebase Enthusiast</p>
+      <a href="#projects" class="cta-button">View My Work</a>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>This is a short paragraph about myself.</p>
-    </section>
-  </main>
+  <!-- ✅ About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I build modern web apps using React, Firebase, and clean UI principles. I love solving real-world problems with code.</p>
+  </section>
+
+  <!-- ✅ Skills -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Firebase</div>
+    </div>
+  </section>
+
+  <!-- ✅ Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>AgriSync AI</h3>
+        <p>Smart AI-powered diagnosis for crops. Built with React & Firebase.</p>
+        <a href="#">Live</a> | <a href="#">GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>AjoX</h3>
+        <p>Esusu savings app using Firebase and React. Fully responsive.</p>
+        <a href="#">Live</a> | <a href="#">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Let's connect! Message me below or chat on WhatsApp.</p>
+    <a href="https://wa.me/234XXXXXXXXXX" target="_blank" class="cta-button">📱 Chat on WhatsApp</a>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
   <script src="script.js"></script>
 </body>

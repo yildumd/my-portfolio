@@ -1,0 +1,24 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yildumd/my-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yildumd/my-portfolio/issues"
+  },
+  "homepage": "https://github.com/yildumd/my-portfolio#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
