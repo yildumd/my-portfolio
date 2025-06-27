@@ -8,7 +8,7 @@
   <style>html { scroll-behavior: smooth; }</style>
 </head>
 <body>
-  <!-- ✅ Dark Mode Toggle -->
+  <!-- Dark Mode Toggle -->
   <div class="theme-toggle">
     <label>
       <input type="checkbox" id="toggle-theme" />
@@ -16,20 +16,21 @@
     </label>
   </div>
 
-  <!-- ✅ Navbar -->
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">Yildum</div>
     <div class="menu-toggle" id="mobile-menu">☰</div>
     <ul class="nav-links" id="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="resume.pdf" download>📄 Resume</a></li>
+      <li><a href="https://docs.google.com/document/d/1jbI4Ey_lW8FNaMj2dSeg9sZYsUu7bFMSjb6PJ22_X4I/edit?usp=sharing" target="_blank">📄 Resume</a></li>
     </ul>
   </nav>
 
-  <!-- ✅ Hero -->
+  <!-- Hero -->
   <header class="hero">
     <div class="hero-content">
       <h1>Hi, I'm Yildum</h1>
@@ -38,13 +39,13 @@
     </div>
   </header>
 
-  <!-- ✅ About -->
+  <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>I build modern web apps using React, Firebase, and clean UI principles. I love solving real-world problems with code.</p>
+    <p>I build clean, responsive, and fast web apps using React, Firebase, HTML, CSS, and JavaScript.</p>
   </section>
 
-  <!-- ✅ Skills -->
+  <!-- Skills -->
   <section id="skills">
     <h2>My Skills</h2>
     <div class="skills-grid">
@@ -56,28 +57,51 @@
     </div>
   </section>
 
-  <!-- ✅ Projects -->
+  <!-- ✅ Services -->
+  <section id="services">
+    <h2>My Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>🔹 Landing Page</h3>
+        <p>Beautiful, responsive landing pages tailored to your business goals.</p>
+        <p><strong>$50 / ₦75,000</strong></p>
+      </div>
+      <div class="service-card">
+        <h3>🔧 Fix / Improve Existing Site</h3>
+        <p>Enhance your website speed, layout, mobile responsiveness or bug fixes.</p>
+        <p><strong>$30 / ₦45,000</strong></p>
+      </div>
+      <div class="service-card">
+        <h3>🛠 Web App & Dashboard</h3>
+        <p>Custom apps and dashboards using React + Firebase (CRUD, auth, admin).</p>
+        <p><strong>$120 / ₦180,000</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
         <h3>AgriSync AI</h3>
-        <p>Smart AI-powered diagnosis for crops. Built with React & Firebase.</p>
+        <p>AI diagnosis for farmers. Built with React & Firebase.</p>
         <a href="#">Live</a> | <a href="#">GitHub</a>
       </div>
       <div class="project-card">
         <h3>AjoX</h3>
-        <p>Esusu savings app using Firebase and React. Fully responsive.</p>
+        <p>Digital savings platform using Firebase and React.</p>
         <a href="#">Live</a> | <a href="#">GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- ✅ Contact -->
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>Let's connect! Message me below or chat on WhatsApp.</p>
-    <a href="https://wa.me/234XXXXXXXXXX" target="_blank" class="cta-button">📱 Chat on WhatsApp</a>
+    <p>Email: <a href="mailto:dyildum@gmail.com">dyildum@gmail.com</a></p>
+    <p>Phone: <a href="https://wa.me/2348164083309" target="_blank">+234 816 408 3309</a></p>
+    <a href="https://wa.me/2348164083309" class="cta-button" target="_blank">📱 Chat on WhatsApp</a>
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
@@ -89,3 +113,22 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<!-- ✅ Testimonials -->
+<section id="testimonials">
+  <h2>Testimonials</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p>"Yildum delivered my project ahead of schedule and exceeded expectations. Highly recommend!"</p>
+      <h4>– Grace O., Startup Founder</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"Very professional and responsive. My dashboard is now fast and beautiful."</p>
+      <h4>– Kola T., Product Manager</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"One of the best frontend devs I’ve worked with. Excellent Firebase integration!"</p>
+      <h4>– Mary A., Tech Lead</h4>
+    </div>
+  </div>
+</section>
