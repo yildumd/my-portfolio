@@ -269,15 +269,25 @@
     }
 
     .hero h1 span {
-      color: var(--accent); /* Pink color */
+      color: var(--accent);
       position: relative;
       display: inline-block;
-      font-size: 1.05em; /* Kept slightly larger than rest of heading */
-      background: linear-gradient(135deg, var(--accent) 0%, #ff7a8a 100%);
+      font-size: 1.05em;
+      background: linear-gradient(135deg, #ff4d6d 0%, #ff8fa3 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 4px rgba(247, 37, 133, 0.2);
+      text-shadow: 0 2px 10px rgba(255, 77, 109, 0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px rgba(255, 77, 109, 0.5);
+      }
+      to {
+        text-shadow: 0 0 10px rgba(255, 77, 109, 0.8), 0 0 15px rgba(255, 77, 109, 0.5);
+      }
     }
 
     .hero p {
@@ -1067,7 +1077,7 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">Yildum<span>.</span></div>
+    <div class="logo">Yildum.dev<span>.</span></div>
     <div class="menu-toggle" id="mobile-menu">
       <i class="fas fa-bars"></i>
     </div>
@@ -1108,21 +1118,21 @@
     <h2>About Me</h2>
     <div class="about-content">
       <div class="about-text">
-        <p>I'm Yildum David Jonah, a passionate frontend developer with less than 1 year of experience creating digital experiences. I specialize in building responsive websites and applications using modern technologies.</p>
-        <p>Though relatively new to the field, I've already completed 5 projects that demonstrate my ability to solve problems creatively and deliver quality results. I'm constantly learning and expanding my skill set to become a better developer.</p>
-        <p>What I lack in years of experience, I make up for with dedication, attention to detail, and a commitment to writing clean, maintainable code. I'm excited to grow my skills through real-world projects.</p>
+        <p>I'm Yildum David Jonah, a passionate frontend developer with 2 years of experience creating digital experiences. I specialize in building responsive websites and applications using modern technologies.</p>
+        <p>I've completed 5 projects that demonstrate my ability to solve problems creatively and deliver quality results. I'm constantly learning and expanding my skill set to become a better developer.</p>
+        <p>My experience includes working with various clients to bring their digital visions to life with clean, maintainable code and intuitive user interfaces.</p>
         <div class="stats">
           <div class="stat-card">
             <div class="stat-number">5+</div>
             <div class="stat-label">Projects Completed</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">3+</div>
+            <div class="stat-number">5+</div>
             <div class="stat-label">Happy Clients</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Year Experience</div>
+            <div class="stat-number">2</div>
+            <div class="stat-label">Years Experience</div>
           </div>
         </div>
       </div>
@@ -1242,7 +1252,7 @@
           <li><i class="fas fa-check"></i> White-glove design process</li>
           <li><i class="fas fa-check"></i> Priority support</li>
           <li><i class="fas fa-check"></i> Zoom onboarding</li>
-          <li><i class="fas fa-check"></i> Lifetime updates</li>
+          <li><i class="fas fa-check"></i> 1 year updates</li>
         </ul>
         <a href="#contact" class="cta-button">Get VIP</a>
       </div>
@@ -1266,8 +1276,8 @@
             <span class="project-tag">AI</span>
           </div>
           <div class="project-links">
-            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://agrisync-frontend.vercel.app/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/yildumd" class="project-link"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
@@ -1284,8 +1294,8 @@
             <span class="project-tag">Fintech</span>
           </div>
           <div class="project-links">
-            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://ajo-x.vercel.app/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/yildumd" class="project-link"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
@@ -1303,7 +1313,7 @@
           </div>
           <div class="project-links">
             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://github.com/yildumd" class="project-link"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
@@ -1374,8 +1384,8 @@
       <div class="contact-info">
         <p><i class="fas fa-envelope"></i> <a href="mailto:dyildum@gmail.com">dyildum@gmail.com</a></p>
         <p><i class="fas fa-phone"></i> <a href="https://wa.me/2348164083309" target="_blank">+234 816 408 3309</a></p>
-        <p><i class="fab fa-linkedin"></i> <a href="#" target="_blank">LinkedIn Profile</a></p>
-        <p><i class="fab fa-github"></i> <a href="#" target="_blank">GitHub Profile</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/david-yildum" target="_blank">LinkedIn Profile</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/yildumd" target="_blank">GitHub Profile</a></p>
         
         <a href="https://wa.me/2348164083309" class="cta-button whatsapp-button" target="_blank">
           <i class="fab fa-whatsapp"></i> Chat on WhatsApp
@@ -1399,9 +1409,10 @@
       <div class="footer-content">
         <div class="logo">Yildum<span>.</span></div>
         <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/yildumd" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/david-yildum" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://x.com/TaavettiD" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/?utm_source=pwa_homescreen&__pwa=1" class="social-link"><i class="fab fa-instagram"></i></a>
         </div>
         <p class="copyright">© 2023 Yildum David Jonah. All rights reserved.</p>
       </div>
